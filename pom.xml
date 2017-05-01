@@ -21,16 +21,16 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
-    <mybatis.spring.boot.version>1.2.0</mybatis.spring.boot.version>
-    <druid.version>1.0.28</druid.version>
+    <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
+    <druid.version>1.0.29</druid.version>
     <quartz.version>2.3.0</quartz.version>
-    <swagger.version>2.2.2</swagger.version>
-    <commons.lang.version>2.6</commons.lang.version>
-    <commons.fileupload.version>1.3.1</commons.fileupload.version>
+    <swagger.version>2.6.1</swagger.version>
+    <commons.lang3.version>3.5</commons.lang3.version>
+    <commons.fileupload.version>1.3.2</commons.fileupload.version>
     <commons.io.version>2.5</commons.io.version>
     <commons.codec.version>1.10</commons.codec.version>
-    <commons.configuration.version>1.10</commons.configuration.version>
-    <fastjson.version>1.2.30</fastjson.version>
+    <commons.configuration2.version>2.1.1</commons.configuration2.version>
+    <fastjson.version>1.2.31</fastjson.version>
     <shiro.version>1.3.2</shiro.version>
     <kaptcha.version>0.0.9</kaptcha.version>
     <qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
@@ -163,9 +163,9 @@
     </dependency>
 
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <version>${commons.lang.version}</version>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons.lang3.version}</version>
     </dependency>
 
     <dependency>
@@ -187,9 +187,9 @@
     </dependency>
 
     <dependency>
-      <groupId>commons-configuration</groupId>
-      <artifactId>commons-configuration</artifactId>
-      <version>${commons.configuration.version}</version>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-configuration2</artifactId>
+      <version>${commons.configuration2.version}</version>
     </dependency>
 
     <dependency>
@@ -241,11 +241,13 @@
     </dependency>
 
     <!-- 代码生成器所需jar -->
+    <!-- 使用freemarker替换 -->
     <dependency>
       <artifactId>velocity</artifactId>
       <groupId>org.apache.velocity</groupId>
       <version>${velocity.version}</version>
     </dependency>
+
   </dependencies>
 
 </project>
