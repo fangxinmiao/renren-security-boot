@@ -27,22 +27,26 @@ import java.util.Map;
 @RequestMapping("/api")
 @Api("登录接口")
 public class ApiLoginController {
+    private final UserService userService;
+    private final TokenService tokenService;
+
     @Autowired
-    private UserService userService;
-    @Autowired
-    private TokenService tokenService;
+    public ApiLoginController(UserService userService, TokenService tokenService) {
+        this.userService = userService;
+        this.tokenService = tokenService;
+    }
 
     /**
      * 登录
      */
     @IgnoreAuth
     @PostMapping("login")
-    @ApiOperation(value = "登录",notes = "登录说明")
+    @ApiOperation(value = "登录", notes = "登录说明")
     @ApiImplicitParams({
-        @ApiImplicitParam(paramType = "query", dataType="string", name = "mobile", value = "手机号", required = true),
-        @ApiImplicitParam(paramType = "query", dataType="string", name = "password", value = "密码", required = true)
+            @ApiImplicitParam(paramType = "query", dataType = "string", name = "mobile", value = "手机号", required = true),
+            @ApiImplicitParam(paramType = "query", dataType = "string", name = "password", value = "密码", required = true)
     })
-    public R login(String mobile, String password){
+    public R login(String mobile, String password) {
         Assert.isBlank(mobile, "手机号不能为空");
         Assert.isBlank(password, "密码不能为空");
 

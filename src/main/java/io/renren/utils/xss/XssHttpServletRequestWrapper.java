@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * XSS过滤处理
+ *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2017-04-01 11:29
@@ -47,9 +48,9 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
     }
 
     @Override
-    public Map<String,String[]> getParameterMap() {
-        Map<String,String[]> map = new LinkedHashMap<>();
-        Map<String,String[]> parameters = super.getParameterMap();
+    public Map<String, String[]> getParameterMap() {
+        Map<String, String[]> map = new LinkedHashMap<>();
+        Map<String, String[]> parameters = super.getParameterMap();
         for (String key : parameters.keySet()) {
             String[] values = parameters.get(key);
             for (int i = 0; i < values.length; i++) {

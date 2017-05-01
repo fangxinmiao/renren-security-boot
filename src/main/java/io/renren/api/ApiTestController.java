@@ -29,7 +29,7 @@ public class ApiTestController {
     @GetMapping("userInfo")
     @ApiOperation(value = "获取用户信息")
     @ApiImplicitParam(paramType = "header", name = "token", value = "token", required = true)
-    public R userInfo(@LoginUser UserEntity user){
+    public R userInfo(@LoginUser UserEntity user) {
         return R.ok().put("user", user);
     }
 
@@ -39,7 +39,7 @@ public class ApiTestController {
     @IgnoreAuth
     @GetMapping("notToken")
     @ApiOperation(value = "忽略Token验证测试")
-    public R notToken(){
+    public R notToken() {
         return R.ok().put("msg", "无需token也能访问。。。");
     }
 }

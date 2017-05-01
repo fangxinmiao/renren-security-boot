@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 注册
+ *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2017-03-26 17:27
@@ -33,10 +34,10 @@ public class ApiRegisterController {
     @PostMapping("register")
     @ApiOperation(value = "注册")
     @ApiImplicitParams({
-            @ApiImplicitParam(paramType = "query", dataType="string", name = "mobile", value = "手机号", required = true),
-            @ApiImplicitParam(paramType = "query", dataType="string", name = "password", value = "密码", required = true)
+            @ApiImplicitParam(paramType = "query", dataType = "string", name = "mobile", value = "手机号", required = true),
+            @ApiImplicitParam(paramType = "query", dataType = "string", name = "password", value = "密码", required = true)
     })
-    public R register(String mobile, String password){
+    public R register(String mobile, String password) {
         Assert.isBlank(mobile, "手机号不能为空");
         Assert.isBlank(password, "密码不能为空");
 

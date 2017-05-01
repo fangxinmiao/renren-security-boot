@@ -1,9 +1,9 @@
 package io.renren.utils.interceptor;
 
-import io.renren.utils.annotation.IgnoreAuth;
 import io.renren.entity.TokenEntity;
 import io.renren.service.TokenService;
 import io.renren.utils.RRException;
+import io.renren.utils.annotation.IgnoreAuth;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * 权限(Token)验证
+ *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2017-03-23 15:38
@@ -29,32 +30,32 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         IgnoreAuth annotation;
-        if(handler instanceof HandlerMethod) {
+        if (handler instanceof HandlerMethod) {
             annotation = ((HandlerMethod) handler).getMethodAnnotation(IgnoreAuth.class);
-        }else{
+        } else {
             return true;
         }
 
         //如果有@IgnoreAuth注解，则不验证token
-        if(annotation != null){
+        if (annotation != null) {
             return true;
         }
 
         //从header中获取token
         String token = request.getHeader("token");
         //如果header中不存在token，则从参数中获取token
-        if(StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             token = request.getParameter("token");
         }
 
         //token为空
-        if(StringUtils.isBlank(token)){
+        if (StringUtils.isBlank(token)) {
             throw new RRException("token不能为空");
         }
 
         //查询token信息
         TokenEntity tokenEntity = tokenService.queryByToken(token);
-        if(tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()){
+        if (tokenEntity == null || tokenEntity.getExpireTime().getTime() < System.currentTimeMillis()) {
             throw new RRException("token失效，请重新登录");
         }
 
