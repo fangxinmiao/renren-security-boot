@@ -1,5 +1,5 @@
 spring:
     datasource:
-        url: jdbc:mysql://localhost:3306/renren_security_boot?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+        url: jdbc:mysql://localhost:3306/renren_security_boot?useSSL=false&allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
         username: devel
         password: devel

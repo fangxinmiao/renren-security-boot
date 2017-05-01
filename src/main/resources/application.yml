@@ -17,8 +17,6 @@ spring:
     jackson:
         time-zone: GMT+8
         date-format: yyyy-MM-dd HH:mm:ss
-    thymeleaf:
-        cache: false
 
 # 初始化大小，最大，最小
 druid:

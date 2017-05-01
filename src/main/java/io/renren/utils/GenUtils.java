@@ -28,8 +28,8 @@ import java.util.zip.ZipOutputStream;
  */
 public class GenUtils {
 
-    public static List<String> getTemplates() {
-        List<String> templates = new ArrayList<String>();
+    private static List<String> getTemplates() {
+        List<String> templates = new ArrayList<>();
         templates.add("template/Entity.java.vm");
         templates.add("template/Dao.java.vm");
         templates.add("template/Dao.xml.vm");
@@ -135,14 +135,14 @@ public class GenUtils {
     /**
      * 列名转换成Java属性名
      */
-    public static String columnToJava(String columnName) {
+    private static String columnToJava(String columnName) {
         return WordUtils.capitalizeFully(columnName, new char[]{'_'}).replace("_", "");
     }
 
     /**
      * 表名转换成Java类名
      */
-    public static String tableToJava(String tableName, String tablePrefix) {
+    private static String tableToJava(String tableName, String tablePrefix) {
         if (StringUtils.isNotBlank(tablePrefix)) {
             tableName = tableName.replace(tablePrefix, "");
         }
@@ -163,7 +163,7 @@ public class GenUtils {
     /**
      * 获取文件名
      */
-    public static String getFileName(String template, String className, String packageName) {
+    private static String getFileName(String template, String className, String packageName) {
         String packagePath = "main" + File.separator + "java" + File.separator;
         if (StringUtils.isNotBlank(packageName)) {
             packagePath += packageName.replace(".", File.separator) + File.separator;

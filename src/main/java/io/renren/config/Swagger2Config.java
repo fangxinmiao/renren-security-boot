@@ -6,11 +6,13 @@ import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 //参考：http://blog.csdn.net/catoop/article/details/50668896
+
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
@@ -27,10 +29,10 @@ public class Swagger2Config {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("renren-security-boot使用Swagger2构建RESTful API")
+                .title("renren-security-boot使用Swagger2构建RESTFul API")
                 .description("人人编程：http://www.renren.io")
                 .termsOfServiceUrl("http://www.renren.io")
-                .contact("人人开源")
+                .contact(new Contact("fangxinmiao", "", "smecf@163.com"))
                 .version("2.0")
                 .build();
     }
